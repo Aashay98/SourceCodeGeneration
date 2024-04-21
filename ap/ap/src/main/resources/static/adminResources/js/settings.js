@@ -1,0 +1,60 @@
+(function($) {
+  'use strict';
+  $(function() {
+    $(".nav-settings").on("click", function() {
+      $("#right-sidebar").toggleClass("open");
+    });
+    $(".settings-close").on("click", function() {
+      $("#right-sidebar,#theme-settings").removeClass("open");
+    });
+
+    $("#settings-trigger").on("click" , function(){
+      $("#theme-settings").toggleClass("open");
+    });
+
+
+    
+    var navbar_classes = "navbar-dark navbar-primary navbar-secondary";
+    var sidebar_classes = "sidebar-light sidebar-dark";
+    var $body = $("body");
+
+   
+    $("#sidebar-light-theme").on("click" , function(){
+      $body.removeClass(sidebar_classes);
+      $body.addClass("sidebar-light");
+      $(".sidebar-bg-options").removeClass("selected");
+      $(this).addClass("selected");
+    });
+    $("#sidebar-dark-theme").on("click" , function(){
+      $body.removeClass(sidebar_classes);
+      $body.addClass("sidebar-dark");
+      $(".sidebar-bg-options").removeClass("selected");
+      $(this).addClass("selected");
+    });
+
+
+    $(".tiles.primary").on("click" , function(){
+      $(".navbar").removeClass(navbar_classes);
+      $(".navbar").addClass("navbar-primary");
+      $(".tiles").removeClass("selected");
+      $(this).addClass("selected");
+    });
+    $(".tiles.secondary").on("click" , function(){
+      $(".navbar").removeClass(navbar_classes);
+      $(".navbar").addClass("navbar-secondary");
+      $(".tiles").removeClass("selected");
+      $(this).addClass("selected");
+    });
+    $(".tiles.dark").on("click" , function(){
+      $(".navbar").removeClass(navbar_classes);
+      $(".navbar").addClass("navbar-dark");
+      $(".tiles").removeClass("selected");
+      $(this).addClass("selected");
+    });
+    $(".tiles.default").on("click" , function(){
+      $(".navbar").removeClass(navbar_classes);
+      $(".tiles").removeClass("selected");
+      $(this).addClass("selected");
+    });
+  });
+})(jQuery);
